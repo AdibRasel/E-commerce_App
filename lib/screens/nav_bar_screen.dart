@@ -1,4 +1,7 @@
 import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/screens/Cart/cart_screen.dart';
+import 'package:ecommerce/screens/Home/home_screen.dart';
+import 'package:ecommerce/screens/favorite.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -10,13 +13,21 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 2;
+  List screens = const [
+    Scaffold(),
+    Favorite(),
+    HomeScreen(),
+    CartScreen(),
+    Scaffold()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            currentIndex = 2;
+            currentIndex =  2;
+
           });
         },
         shape: const CircleBorder(),
@@ -36,14 +47,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState((){
+                    currentIndex = 0 ;
+                  });
+                },
                 icon: Icon(Icons.grid_view_outlined,
                     size: 30,
                     color: currentIndex == 0
                         ? kprimaryColor
                         : Colors.grey.shade400)),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState((){
+                    currentIndex = 1 ;
+                  });
+                },
                 icon: Icon(Icons.favorite_border,
                     size: 30,
                     color: currentIndex == 1
@@ -51,22 +70,31 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         : Colors.grey.shade400)),
             const SizedBox(width: 15),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState((){
+                    currentIndex = 3 ;
+                  });
+                },
                 icon: Icon(Icons.shopping_cart_outlined,
                     size: 30,
-                    color: currentIndex == 2
+                    color: currentIndex == 3
                         ? kprimaryColor
                         : Colors.grey.shade400)),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState((){
+                    currentIndex = 4 ;
+                  });
+                },
                 icon: Icon(Icons.person,
                     size: 30,
-                    color: currentIndex == 3
+                    color: currentIndex == 4
                         ? kprimaryColor
                         : Colors.grey.shade400)),
           ],
         ),
       ),
+      body: screens[currentIndex] ,
     );
   }
 }
