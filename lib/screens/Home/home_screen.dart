@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/Home/Widget/category.dart';
 import 'package:ecommerce/screens/Home/Widget/home_app_bar.dart';
 import 'package:ecommerce/screens/Home/Widget/image_slider.dart';
 import 'package:ecommerce/screens/Home/Widget/search_bar.dart';
@@ -44,7 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {
                   currentSlider = value;
                 });
-              })
+              }),
+
+
+              const SizedBox(height: 20),
+
+
+
+              // for Category Selection
+              const Categories(),
 
 
 
