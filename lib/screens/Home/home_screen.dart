@@ -1,4 +1,3 @@
-import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/screens/Home/Widget/home_app_bar.dart';
 import 'package:ecommerce/screens/Home/Widget/image_slider.dart';
 import 'package:ecommerce/screens/Home/Widget/search_bar.dart';
@@ -13,34 +12,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentSlider = 0;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
 
-              SizedBox(height: 35),
+              const SizedBox(height: 35),
 
               // for custom appbar
-              CurrentAppBar(),
+              const CurrentAppBar(),
               
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // for search bar
-              MySearchBar(),
+              const MySearchBar(),
 
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
 
               // Image Slider
-              ImageSlider()
+              ImageSlider(currentSlider: currentSlider, onChange: (value){
+                setState(() {
+                  currentSlider = value;
+                });
+              })
 
 
 

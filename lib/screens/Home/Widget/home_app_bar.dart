@@ -16,7 +16,7 @@ class CurrentAppBar extends StatelessWidget {
         IconButton(
           style: IconButton.styleFrom(
               backgroundColor: kcontentColor,
-                padding: EdgeInsets.all(2),
+                padding: const EdgeInsets.all(2),
             ),
           onPressed: (){},
           icon: Image.asset(
@@ -27,7 +27,7 @@ class CurrentAppBar extends StatelessWidget {
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: kcontentColor,
-            padding: EdgeInsets.all(2),
+            padding: const EdgeInsets.all(2),
           ),
           onPressed: (){},
             iconSize: 30,
