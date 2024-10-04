@@ -85,7 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.78,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
                 ), 
                 itemCount: products.length,
                 itemBuilder: (context, index){
@@ -94,6 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                 }
               )
+              // for Shoping items end
+
 
 
 

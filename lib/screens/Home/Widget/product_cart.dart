@@ -41,7 +41,33 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10,)
+                const SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "\$${product.price}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17
+                      ),
+                    ),
+                    Row(
+                      children: List.generate(
+                        product.colors.length,
+                        (index) => Container(
+                          width: 18,
+                          height: 18,
+                          margin: const EdgeInsets.only(right: 4),
+                          decoration: BoxDecoration(
+                            color: product.colors[index],
+                            shape: BoxShape.circle,
+                          ),
+                        )
+                        ),
+                    )
+                  ],
+                )
               ],
             ),
           )
