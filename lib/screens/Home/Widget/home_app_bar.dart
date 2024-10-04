@@ -24,6 +24,13 @@ class CurrentAppBar extends StatelessWidget {
             height: 20,
           ),
         ),
+        const Text(
+          "Rasel's Shop",
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.w500
+          ),
+        ),
         IconButton(
           style: IconButton.styleFrom(
             backgroundColor: kcontentColor,
