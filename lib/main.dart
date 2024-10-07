@@ -1,4 +1,5 @@
 import 'package:ecommerce/Provider/cart_provider.dart';
+import 'package:ecommerce/Provider/favorite_provider.dart';
 import 'package:ecommerce/screens/nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
     providers: [
       ChangeNotifierProvider(
         create: (_)=> CartProvider(),
-      )
+      ),
+      ChangeNotifierProvider(
+        create: (_)=> FavoriteProvider(),
+      ),
     ],
     
   
@@ -38,4 +42,6 @@ class MyApp extends StatelessWidget {
 // work compleate : 55:09 
 // work compleate : 1:13:28
 // work compleate : 1:28:03
-// work compleate : 1:36:46 - problem
+// work compleate : 1:36:46 - problem - problem solve
+// The work of this project has been completed so far. When the complete working of the Flutter is learned then the work will be started again from here. 
+// End of work: 1:47:02

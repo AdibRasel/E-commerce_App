@@ -1,12 +1,15 @@
 import 'package:ecommerce/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/Provider/cart_provider.dart';
-// import 'package:provider/provider.dart';
-// import 'package:provider/provider.dart';
 
-class CheckOutBox extends StatelessWidget {
+class CheckOutBox extends StatefulWidget {
   const CheckOutBox({super.key});
 
+  @override
+  State<CheckOutBox> createState() => _CheckOutBoxState();
+}
+
+class _CheckOutBoxState extends State<CheckOutBox> {
   @override
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);

@@ -1,8 +1,11 @@
 import 'package:ecommerce/constants.dart';
 import 'package:ecommerce/screens/Cart/cart_screen.dart';
 import 'package:ecommerce/screens/Home/home_screen.dart';
-import 'package:ecommerce/screens/favorite.dart';
+import 'package:ecommerce/screens/Favorite/favorite.dart';
 import 'package:flutter/material.dart';
+
+import 'MyPage/MyImageOne.dart';
+import 'MyPage/MyImageTwo.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -14,11 +17,13 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 2;
   List screens = const [
-    Scaffold(),
+    // Scaffold(),
+    Myimageone(), // First icon first page
     Favorite(),
     HomeScreen(),
     CartScreen(),
-    Scaffold()
+    Myimagetwo(), // last icon last page
+    // Scaffold() 
   ];
   @override
   Widget build(BuildContext context) {

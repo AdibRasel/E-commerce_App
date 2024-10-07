@@ -84,7 +84,7 @@ class _AddToCartState extends State<AddToCart> {
                     "Successfully added $currentIndex item",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),

@@ -30,7 +30,7 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             children: [
               // AppBar
-              const DetailAppBar(),
+              DetailAppBar(product: widget.product),
               // Image Slider
               MyImageSlider(
                 images: widget.product.image,
