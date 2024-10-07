@@ -1,17 +1,41 @@
 import 'package:ecommerce/Provider/cart_provider.dart';
 import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/screens/Cart/check_out.dart';
 import 'package:ecommerce/screens/nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
     final finalList = provider.cart;
+    
+    // for quantity
+    productQuantity(IconData icon, int index) {
+      return GestureDetector(
+        onTap: (){
+          setState(() {
+            icon == Icons.add 
+            ? provider.incrementQtn(index)
+            : provider.decrementQtn(index);
+          });
+        },
+        child: Icon(icon, size: 20),
+      );
+    }
+
+
     return  Scaffold(
+      // for total and check out
+      bottomSheet: const CheckOutBox(),
       backgroundColor: kcontentColor,
       body: SafeArea(
         child: Column(
@@ -108,7 +132,61 @@ class CartScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                      ),
+                      Positioned(
+                        top: 35,
+                        right: 35,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: (){
+                                finalList.removeAt(index);
+                                setState((){
+
+                                });
+                              },
+                              icon:const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                                size: 25
+                              )
+                            ),
+                            const SizedBox(height: 10,),
+                            Container(
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: kcontentColor,
+                                border: Border.all(
+                                  color: Colors.grey.shade200,
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 10,),
+                                    productQuantity(Icons.add, index),
+                                    const SizedBox(width: 10,),
+                                    Text(
+                                      cartItem.quantity.toString(),
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    productQuantity(Icons.remove, index),
+                                    const SizedBox(width: 10,),
+                                  ],
+                                )
+                            )
+
+                          ]
+                        )
                       )
+                      
+
                     ],
                   );
                 },

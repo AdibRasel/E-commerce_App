@@ -82,13 +82,13 @@ class _AddToCartState extends State<AddToCart> {
                 final snackBar = SnackBar(
                   content:  Text(
                     "Successfully added $currentIndex item",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white,
                     ),
                   ),
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
